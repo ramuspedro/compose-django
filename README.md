@@ -17,7 +17,7 @@ ADD . /code/
 ```
 - **requeriments.txt**
 ```
-Django>=1.8,<2.0
+Django==2.0.1
 psycopg2
 ```
 - **docker-compose.yml**
