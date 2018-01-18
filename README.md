@@ -71,5 +71,3 @@ DATABASES = {
 - docker rmi id_image
 
 - sudo rm -R manage.py project
-
-docker run -d -p 5432:5432 -e POSTGRES_DB=mapbioamas -e POSTGRES_PASSWORD=1q2w3e4r -h mapbiomas-db --name mapbiomas-db -d mdillon/postgis:9.5
