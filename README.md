@@ -39,12 +39,12 @@ services:
 ```
 * Build the image
 ```sh
-docker-compose run web django-admin.py startproject project .
+$ docker-compose run web django-admin.py startproject project .
 ```
 
 * Change the ownership of the new files
 ```sh
-sudo chown -R $user .
+$ sudo chown -R $user .
 ```
 
 * Configure project/settings.py
@@ -62,12 +62,17 @@ DATABASES = {
 
 * Run: *docker-compose up*
 
-## Redo the project
+* To run the migration on django: *docker-compose run web python manage.py migrate*
 
-- docker-compose down
+## Redo the project
+- To erase what you've done so far:
+```sh
+$ docker-compose down
+```
 
 - remove the image of the project
+```sh
+$ docker rmi image_id --force
 
-- docker rmi id_image
-
-- sudo rm -R manage.py project
+$ sudo rm -R manage.py project
+```
