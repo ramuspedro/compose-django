@@ -1,8 +1,20 @@
 version: '3'
 
 services:
-  db:
+  postgres:
     image: postgres
+    ports:
+      - '5434:5432'
+  phppgadmin:
+    image: zhajor/docker-phppgadmin
+    ports:
+      - '5433:80'
+    environment:
+      - DB_PORT=5432
+      - POSTGRES_DB=database
+      - POSTGRES_PASSWORD=admin
+    depends_on:
+      - postgres
   web:
     build: .
     command: python3 manage.py runserver 0.0.0.0:8000
@@ -11,4 +23,4 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - postgres
