@@ -25,8 +25,24 @@ psycopg2
 version: '3'
 
 services:
-  db:
-    image: postgres
+  postgres:
+    image: mdillon/postgis:9.5
+    ports:
+      - '5434:5432'
+    environment:
+      - POSTGRES_DB=database
+      - POSTGRES_PASSWORD=admin
+  phppgadmin:
+    image: zhajor/docker-phppgadmin
+    ports:
+      - '5433:80'
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5434
+    links:
+      - postgres
+    depends_on:
+      - postgres
   web:
     build: .
     command: python3 manage.py runserver 0.0.0.0:8000
@@ -35,7 +51,7 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - postgres
 ```
 * Build the image
 ```sh

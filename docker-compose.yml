@@ -4,7 +4,7 @@ services:
   postgres:
     image: mdillon/postgis:9.5
     ports:
-      - '5432:5432'
+      - '5434:5432'
     environment:
       - POSTGRES_DB=database
       - POSTGRES_PASSWORD=admin
@@ -14,7 +14,7 @@ services:
       - '5433:80'
     environment:
       - DB_HOST=postgres
-      - DB_PORT=5432
+      - DB_PORT=5434
     links:
       - postgres
     depends_on:
