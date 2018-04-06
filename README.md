@@ -70,7 +70,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'postgres',
         'HOST': 'postgres',
         'PORT': 5432,
     }
@@ -80,6 +80,12 @@ DATABASES = {
 * Run: *docker-compose up*
 
 * To run the migration on django: *docker-compose run web python manage.py migrate*
+or
+* Enter on container and run *python manage.py migrate* (https://docs.djangoproject.com/pt-br/2.0/intro/tutorial02/)
+
+* Access the app: *http://localhost:8000/*
+
+* Create superuser: *python manage.py createsuperuser*
 
 ## Redo the project
 - To erase what you've done so far:
