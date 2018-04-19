@@ -40,6 +40,8 @@ or
 
 * Create superuser: *python manage.py createsuperuser*
 
+* Create an app: *python manage.py startapp app-project*
+
 ## Redo the project
 - To erase what you've done so far:
 ```sh
